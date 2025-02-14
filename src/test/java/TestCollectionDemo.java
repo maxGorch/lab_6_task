@@ -16,7 +16,7 @@ public class TestCollectionDemo {
     String test_str_2 = "Integer";
     String test_str_3 = "Apple";
     String test_str_null = null;
-    StringBuilder str_input = new StringBuilder();
+    int counter = 0;
 
     @Test
     public void test_first()
@@ -29,10 +29,10 @@ public class TestCollectionDemo {
         for(String i: test_list)
         {
             if (i.charAt(0) == test_char)
-                str_input.append(i);
+                counter++;
         }
 
-        assertEquals(str_input.toString(), test.amountString(test_list, test_char).toString(), "Должно быть выведено: ImageInteger");
+        assertEquals(counter, test.amountString(test_list, test_char), "Должно быть выведено кол-во 2");
     }
     @Test
     public void test_second()
