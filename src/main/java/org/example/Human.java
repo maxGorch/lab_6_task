@@ -1,13 +1,11 @@
 package org.example;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Human
 //TODO: Создайте класс Human с полями: фамилия, имя, отчество, возраст и методами:
 // конструкторы, геттеры/сеттеры, equals и hashCode.
-// Напишите метода класса ListDemo, который получает на вход список объектов типа Human
-// и еще один объект типа Human. Результат — список однофамильцев заданного человека
-// среди людей из входного списка.
 {
     String first_name,second_name,last_name;
     int age;
