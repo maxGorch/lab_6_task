@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -25,7 +26,7 @@ public class TestListDemo
 
 
     @Test
-    public void test_first_allGood()
+    public void getNamesake_test_first_allGood()
     //Тест где все работает
     {
         test_list.add(product_1);
@@ -41,8 +42,8 @@ public class TestListDemo
     }
 
     @Test
-    public void test_second_nullException()
-    //Тест где все работает
+    public void getNamesake_test_second_IllegalArgumentException()
+    //Тест, где выбрасывается исключение связанное с аргументами
     {
         test_list.add(null);
         test_list.add(product_2);
@@ -53,6 +54,39 @@ public class TestListDemo
             test.getNamesake(test_list, product_another);
             test.getNamesake(test_list, null);
             test.getNamesake(test_list, product_another_empty);
-        },"Мы должны получить исключение за счет null эл-ов в списке!");
+        }, "Мы должны получить исключение за счет null эл-ов в списке!");
+    }
+
+    @Test
+    public void copyListHuman_test_first_allGood()
+    //Тест где все хорошо
+    {
+        test_list.add(product_1);
+        test_list.add(product_2);
+        test_list.add(product_3);
+        test_list.add(product_another);
+        List<Human> copy_list = test.copyListHuman(test_list, product_another);
+
+        List<Human> forCopy_list = new ArrayList<>();
+        forCopy_list.add(product_1);
+        forCopy_list.add(product_2);
+        forCopy_list.add(product_3);
+
+        assertEquals(copy_list,forCopy_list);
+    }
+    @Test
+    public void copyListHuman_test_first_IllegalArgumentException()
+    //Тест, где выбрасывается исключение связанное с аргументами
+    {
+        test_list.add(null);
+        test_list.add(product_2);
+        test_list.add(null);
+        test_list.add(product_another);
+        AtomicReference<List<Human>> copy_list = null;
+
+        assertThrows(IllegalArgumentException.class, () ->
+        {
+            copy_list.set(test.copyListHuman(test_list, product_another));
+        }, "Мы должны получить исключение за счет null эл-ов в списке!");
     }
 }
