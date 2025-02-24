@@ -7,7 +7,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TestCollectionDemo {
+public class TestAmountString {
     List<String> test_list = new ArrayList<>();
     CollectionDemo test = new CollectionDemo();
     char test_char = 'I';
