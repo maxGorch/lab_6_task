@@ -7,40 +7,6 @@ import java.util.List;
 
 public class CollectionDemo {
 
-//    public static void main(String[] args) {
-//
-//        List<int[]> multitudeInteger = new ArrayList<>();
-//        int[] el1 = {1, 2, 3};
-//        multitudeInteger.add(el1);
-//        int[] el2 = {4, 5, 6, 7};
-//        multitudeInteger.add(el2);
-//        int[] el3 = {8, 9};
-//        multitudeInteger.add(el3);
-//        int[] anotherMultitude = {2, 10};
-//
-//        List<int[]> intersectionMultitude = new ArrayList<>();
-//
-//        for (int[] el : multitudeInteger) {
-//            boolean flag = true;
-//            for (int i : anotherMultitude) {
-//                for (int j : el) {
-//                    if (i == j) {
-//                        flag = false;
-//                        break;
-//                    }
-//                }
-//            }
-//            if (flag)
-//                intersectionMultitude.add(el);
-//
-//        }
-//
-//        for (int[] i : intersectionMultitude) {
-//            System.out.println(Arrays.toString(i));
-//        }
-//
-//    }
-
     public int amountString(List<String> user_list, char user_char)
     //TODO:
     // Вход: список строк и символ.

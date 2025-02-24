@@ -74,4 +74,20 @@ public class ListDemo {
         */
     }
 
+    public List<Human> studentMaxAge(List<Human> user_list)
+    //TODO: Напишите метод класса ListDemo, который получает на вход список, состоящий из
+    // объектов типа Human и его производных классов. Результат — множество людей из
+    // входного списка с максимальным возрастом.
+    {
+        List<Human> returnList = new ArrayList<>();
+        int max = user_list.get(1).getAge();
+        for (int i = 0; i < user_list.toArray().length; i++) {
+            if(user_list.get(i).getAge()>max)
+            {
+                max = user_list.get(i).getAge();
+            }
+        }
+        return returnList;
+    }
+
 }
