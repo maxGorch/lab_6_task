@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ListDemo {
@@ -56,37 +57,38 @@ public class ListDemo {
         }
 
         return new_list_human;
-        /*
-        arg: FinanceReport obj
-        Payment[] new_payments = new Payment[obj.getLengthPayments()];
-            Payment old_payment;
-            for (int i = 0; i < new_payments.length; i++) {
-                old_payment = obj.getIndexPayments(i);
-                new_payments[i] = new Payment(
-                        old_payment.getSNM(),
-                        old_payment.getPayment_date(),
-                        old_payment.getMonth(),
-                        old_payment.getYear(),
-                        old_payment.getPayment_amount()
-                );
-
-            }
-        */
     }
 
-    public List<Human> studentMaxAge(List<Human> user_list)
+    public List<? extends Human> studentMaxAge(List<? extends Human> user_list)
     //TODO: Напишите метод класса ListDemo, который получает на вход список, состоящий из
     // объектов типа Human и его производных классов. Результат — множество людей из
     // входного списка с максимальным возрастом.
     {
         List<Human> returnList = new ArrayList<>();
-        int max = user_list.get(1).getAge();
-        for (int i = 0; i < user_list.toArray().length; i++) {
-            if(user_list.get(i).getAge()>max)
+        if(user_list.isEmpty())
+        {
+            throw new IllegalArgumentException("Exception user_list not empty");
+        }
+        else{
+            int max = user_list.getFirst().getAge();
+
+            for (Human i: user_list)
+                if (i.getAge() > max) {
+                    max = i.getAge();
+                }
+
+            for (Human j: user_list)
             {
-                max = user_list.get(i).getAge();
+                if (j.getAge() == max) {
+                    returnList.add(new Human(
+                            j.getFirst_name(),
+                            j.getSecond_name(),
+                            j.getLast_name(),
+                            j.getAge()));
+                }
             }
         }
+
         return returnList;
     }
 

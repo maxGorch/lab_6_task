@@ -27,6 +27,7 @@ public class TestListDemo
 
     @Test
     public void getNamesake_test_first_allGood()
+    // Тест, который проверяет работу метода getNamesake
     //Тест где все работает
     {
         test_list.add(product_1);
@@ -72,8 +73,9 @@ public class TestListDemo
         forCopy_list.add(product_2);
         forCopy_list.add(product_3);
 
-        assertEquals(copy_list,forCopy_list);
+        assertEquals(copy_list, forCopy_list);
     }
+
     @Test
     public void copyListHuman_test_first_IllegalArgumentException()
     //Тест, где выбрасывается исключение связанное с аргументами
