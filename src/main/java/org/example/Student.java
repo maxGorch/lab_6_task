@@ -1,7 +1,8 @@
 package org.example;
 
 public class Student extends Human
-//TODO:Создайте класс Student, производный от Human,
+//TODO: Задание №5.1
+// Создайте класс Student, производный от Human,
 // новое поле — название факультета, к нему геттер, сеттер и конструктор.
 {
     String nameFaculty;

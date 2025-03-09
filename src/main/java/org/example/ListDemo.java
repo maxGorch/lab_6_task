@@ -1,12 +1,14 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ListDemo {
     public List<Human> getNamesake(List<Human> user_list_human, Human nameSake_human)
-    //TODO: Напишите метода класса ListDemo, который получает на вход список объектов типа Human
+    //TODO: Задание №2
+    // Напишите метода класса ListDemo, который получает на вход список объектов типа Human
     // и еще один объект типа Human. Результат — список однофамильцев заданного человека
     // среди людей из входного списка.
     {
@@ -29,7 +31,8 @@ public class ListDemo {
     }
 
     public List<Human> copyListHuman(List<Human> user_list_human, Human another_Human)
-    //TODO: Вход: список объектов типа Human и еще один объект типа Human. Выход — копия
+    //TODO: Задание №3
+    // Вход: список объектов типа Human и еще один объект типа Human. Выход — копия
     // входного списка, не содержащая выделенного человека. При изменении элементов
     // входного списка элементы выходного изменяться не должны.
     {
@@ -59,28 +62,30 @@ public class ListDemo {
         return new_list_human;
     }
 
-    public List<? extends Human> studentMaxAge(List<? extends Human> user_list)
-    //TODO: Напишите метод класса ListDemo, который получает на вход список, состоящий из
+    public Set<Human> studentMaxAge(List<? extends Human> user_list)
+    //TODO: Задание 5.2
+    // Напишите метод класса ListDemo, который получает на вход список, состоящий из
     // объектов типа Human и его производных классов. Результат — множество людей из
     // входного списка с максимальным возрастом.
     {
-        List<Human> returnList = new ArrayList<>();
-        if(user_list.isEmpty())
-        {
+        Set<Human> returnSet = new HashSet<>();
+        if (user_list.isEmpty()) {
             throw new IllegalArgumentException("Exception user_list not empty");
-        }
-        else{
+        } else {
             int max = user_list.getFirst().getAge();
 
-            for (Human i: user_list)
-                if (i.getAge() > max) {
-                    max = i.getAge();
+            for (Human i : user_list) {
+                if (i == null) {
+                    throw new NullPointerException("Element user_list is null!");
+                } else {
+                    if (i.getAge() > max) {
+                        max = i.getAge();
+                    }
                 }
-
-            for (Human j: user_list)
-            {
+            }
+            for (Human j : user_list) {
                 if (j.getAge() == max) {
-                    returnList.add(new Human(
+                    returnSet.add(new Human(
                             j.getFirst_name(),
                             j.getSecond_name(),
                             j.getLast_name(),
@@ -89,7 +94,7 @@ public class ListDemo {
             }
         }
 
-        return returnList;
+        return returnSet;
     }
 
 }
