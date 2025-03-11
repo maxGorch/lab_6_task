@@ -1,14 +1,13 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class CollectionDemo {
 
     public int amountString(List<String> user_list, char user_char)
-    //TODO:
+    //TODO: Задание №1
     // Вход: список строк и символ.
     // Выход: количество строк входного списка, у которых первый символ совпадает с заданным.
     {
@@ -28,18 +27,18 @@ public class CollectionDemo {
         return counter;
     }
 
-    public List<int[]> intersectionMultitude(List<int[]> multitudeInteger, int[] anotherMultitude)
-    //TODO:
+    public List<Set<Integer>> intersectionMultitude(List<Set<Integer>> multitudeInteger, Set<Integer> anotherMultitude)
+    //TODO: Задание №4
     // Вход: список множеств целых чисел и еще одно множество.
     // Выход: список всех множеств входного списка, которые не пересекаются с заданным множеством.
     {
-        List<int[]> intersectionMultitude = new ArrayList<>();
+        List<Set<Integer>> intersectionMultitude = new ArrayList<>();
         if (multitudeInteger.isEmpty()) {
             throw new IllegalArgumentException("List is empty!");
         } else if (anotherMultitude == null) {
             throw new IllegalArgumentException("Array is null");
         } else {
-            for (int[] el : multitudeInteger) {
+            for (Set<Integer> el : multitudeInteger) {
                 if(el == null)
                 {
                     throw new NullPointerException("Elements in List maybe null!");

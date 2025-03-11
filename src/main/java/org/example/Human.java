@@ -6,7 +6,7 @@ public class Human
 //TODO: Создайте класс Human с полями: фамилия, имя, отчество, возраст и методами:
 // конструкторы, геттеры/сеттеры, equals и hashCode.
 {
-    String first_name,second_name,last_name;
+    String first_name, second_name, last_name;
     int age;
 
     public Human(String first_name, String second_name, String last_name, int age) {
@@ -58,5 +58,15 @@ public class Human
     @Override
     public int hashCode() {
         return Objects.hash(getFirst_name(), getSecond_name(), getLast_name(), getAge());
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "first_name='" + first_name + '\'' +
+                ", second_name='" + second_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
