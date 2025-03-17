@@ -141,7 +141,7 @@ public class TestListDemo
     }
 
     @Test
-    public void mapHumansIntersectionSet_test_first_allGood() {
+    public void mapHumansIntersectionSet_test_first_2Correct() {
         Set<Human> newSetHuman = new HashSet<>();
 
         mapHuman.put(12345, productH_1);
@@ -151,37 +151,15 @@ public class TestListDemo
         anotherMultitude.add(12345);
         anotherMultitude.add(67890);
 
-//        Set<Integer> keyWithIntersection = new HashSet<>();
-//        Set<Integer> keysMap = mapHuman.keySet();
-//        boolean flag;
-//
-//        for (int i : anotherMultitude) {
-//            flag = true;
-//            for (int j : keysMap) {
-//                if (i == j) {
-//                    flag = false;
-//                    break;
-//                }
-//            }
-//            if (flag)
-//                keyWithIntersection.add(i);
-//        }
-        int setKeysIntersection;
-
-        for (Integer integer : anotherMultitude) {
-            setKeysIntersection = integer;
-            if (mapHuman.containsKey(setKeysIntersection)) {
-                newSetHuman.add(mapHuman.get(setKeysIntersection));
-            }
-        }
+        newSetHuman.add(productH_1);
+        newSetHuman.add(productH_2);
 
         assertEquals(newSetHuman, test.mapHumansIntersectionSet(mapHuman, anotherMultitude),
                 "Результат — множество людей, идентификаторы которых содержатся во входном множестве.");
 
     }
-
     @Test
-    public void mapHumansIntersectionSet_test_first_IllegalArgumentExceptionInMap() {
+    public void mapHumansIntersectionSet_test_first_NullPointerExceptionInMap () {
         mapHuman.put(null, null);
         mapHuman.put(null, productH_2);
         mapHuman.put(111213, null);
@@ -193,9 +171,8 @@ public class TestListDemo
             test.mapHumansIntersectionSet(mapHuman, anotherMultitude);
         }, "Мы должны получить исключение за счет null эл-ов в списке!");
     }
-
     @Test
-    public void mapHumansIntersectionSet_test_first_IllegalArgumentExceptionInSet() {
+    public void mapHumansIntersectionSet_test_first_IllegalArgumentExceptionInSet1() {
         mapHuman.put(12345, productH_1);
         mapHuman.put(67890, productH_2);
         mapHuman.put(111213, productH_3);
@@ -207,4 +184,19 @@ public class TestListDemo
             test.mapHumansIntersectionSet(mapHuman, anotherMultitude);
         }, "Мы должны получить исключение за счет null эл-ов в списке!");
     }
+    @Test
+    public void mapHumansIntersectionSet_test_first_IllegalArgumentExceptionInSet2() {
+        mapHuman.put(12345, productH_1);
+        mapHuman.put(67890, productH_2);
+        mapHuman.put(111213, productH_3);
+
+        anotherMultitude.add(12345);
+        anotherMultitude.add(null);
+
+        assertThrows(NullPointerException.class, () ->
+        {
+            test.mapHumansIntersectionSet(mapHuman, anotherMultitude);
+        }, "Мы должны получить исключение за счет null эл-ов в списке!");
+    }
+
 }
